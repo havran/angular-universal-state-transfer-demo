@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { User } from './user';
 import { UserAccess } from './user-access';
 import { CONFIG_SERVICE, ConfigAccess } from '../../core/service/config-access';
+import {APP_CONFIG} from "../../../config/app.config.token";
+import {AppConfig} from "../../../config/app.config";
 
 @Injectable()
 export class UserApiService implements UserAccess {
@@ -12,7 +14,7 @@ export class UserApiService implements UserAccess {
 
   constructor(private http: HttpClient,
               @Inject(PLATFORM_ID) private platformId,
-              @Inject(CONFIG_SERVICE) private config: ConfigAccess) {
+              @Inject(APP_CONFIG) private config: AppConfig) {
     this.apiUrl = this.config.apiUrl;
   }
 
